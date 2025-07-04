@@ -1,0 +1,13 @@
+import cv2
+import numpy as np
+
+image = cv2.imread('image.jpg', 0)
+blurred = cv2.GaussianBlur(image, (5, 5), 0)
+
+# High-boost: A > 1
+A = 2.0
+high_boost = cv2.addWeighted(image, A, blurred, -(A - 1), 0)
+
+cv2.imshow("High-Boost Filtering", high_boost)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
