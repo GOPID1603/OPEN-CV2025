@@ -1,0 +1,18 @@
+import cv2
+import numpy as np
+
+image = cv2.imread('image.jpg', 0)
+
+# Sobel gradient in x and y
+grad_x = cv2.Sobel(image, cv2.CV_64F, 1, 0, ksize=3)
+grad_y = cv2.Sobel(image, cv2.CV_64F, 0, 1, ksize=3)
+
+# Combine gradients
+gradient = cv2.magnitude(grad_x, grad_y)
+
+# Convert float back to uint8
+gradient = cv2.convertScaleAbs(gradient)
+
+cv2.imshow("Gradient Masking", gradient)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
