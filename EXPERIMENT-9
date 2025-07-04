@@ -1,0 +1,18 @@
+import cv2
+
+image = cv2.imread('image.jpg')
+(h, w) = image.shape[:2]
+center = (w // 2, h // 2)
+
+# Clockwise 90 degrees
+clockwise = cv2.getRotationMatrix2D(center, -90, 1.0)
+rotated_cw = cv2.warpAffine(image, clockwise, (w, h))
+
+# Counterclockwise 90 degrees
+counter = cv2.getRotationMatrix2D(center, 90, 1.0)
+rotated_ccw = cv2.warpAffine(image, counter, (w, h))
+
+cv2.imshow("Clockwise", rotated_cw)
+cv2.imshow("Counter Clockwise", rotated_ccw)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
