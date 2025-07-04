@@ -1,0 +1,22 @@
+import cv2
+
+# Load video
+cap = cv2.VideoCapture('video.mp4')  # Replace with your video file path
+
+# Choose speed: 1 = normal, >1 = slower, <1 = faster
+speed = 2  # For slow motion, try 2 or 3. For fast, try 0.5
+
+while cap.isOpened():
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    cv2.imshow("Video Playback", frame)
+
+    # Delay between frames
+    key = cv2.waitKey(int(30 * speed))  # 30 ms is ~normal speed
+    if key == 27:  # ESC key
+        break
+
+cap.release()
+cv2.destroyAllWindows()
