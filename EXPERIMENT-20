@@ -1,0 +1,15 @@
+import cv2
+import numpy as np
+
+image = cv2.imread('image.jpg', 0)
+
+# Laplacian kernel with negative center
+kernel = np.array([[0, 1, 0],
+                   [1, -4, 1],
+                   [0, 1, 0]])
+
+sharpened = cv2.filter2D(image, -1, kernel)
+
+cv2.imshow("Laplacian Sharpen (Negative Center)", sharpened)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
