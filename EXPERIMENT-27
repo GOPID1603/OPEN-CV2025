@@ -1,0 +1,16 @@
+import cv2
+
+# Load image
+image = cv2.imread("image.jpg")
+
+# Define cropping coordinates (y1:y2, x1:x2)
+crop = image[50:150, 100:200]  # Crop a region
+
+# Paste it to another location
+image[200:300, 300:400] = crop
+
+# Save or show result
+cv2.imwrite("pasted_image.jpg", image)
+cv2.imshow("Copied and Pasted", image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
