@@ -1,0 +1,16 @@
+import cv2
+import numpy as np
+
+# Load grayscale image
+image = cv2.imread("image.jpg", 0)
+
+# Define Laplacian kernel for edge detection
+kernel = np.array([[-1,-1,-1], [-1,8,-1], [-1,-1,-1]])
+
+# Apply convolution
+edges = cv2.filter2D(image, -1, kernel)
+
+cv2.imwrite("boundary_output.jpg", edges)
+cv2.imshow("Boundary", edges)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
