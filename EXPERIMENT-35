@@ -1,0 +1,6 @@
+blackhat = cv2.morphologyEx(image, cv2.MORPH_BLACKHAT, kernel)
+
+cv2.imwrite("blackhat.jpg", blackhat)
+cv2.imshow("Black Hat", blackhat)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
