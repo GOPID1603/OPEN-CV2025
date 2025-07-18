@@ -1,0 +1,19 @@
+import cv2
+
+image = cv2.imread("image.jpg")
+
+# Define rectangle
+x, y, w, h = 100, 100, 150, 150
+cv2.rectangle(image, (x, y), (x + w, y + h), (0, 0, 255), 2)
+
+# Extract ROI
+roi = image[y:y+h, x:x+w]
+
+# Save both images
+cv2.imwrite("rectangle_drawn.jpg", image)
+cv2.imwrite("extracted_object.jpg", roi)
+
+cv2.imshow("Original with Rectangle", image)
+cv2.imshow("Extracted Object", roi)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
