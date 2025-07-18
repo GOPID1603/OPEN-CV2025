@@ -1,0 +1,6 @@
+gradient = cv2.morphologyEx(image, cv2.MORPH_GRADIENT, kernel)
+
+cv2.imwrite("gradient.jpg", gradient)
+cv2.imshow("Morphological Gradient", gradient)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
